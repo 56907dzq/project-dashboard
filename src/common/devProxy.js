@@ -14,10 +14,10 @@ module.exports = {
         // use ** or / will proxy all requests starting with any string，include static file.
         // proxy useful only while path exist && option.target is exist
 
-        path: ['/api/aproxy'],
+        path: ['/api/proxy'],
         option: {
             // the target to request
-            target: '',
+            target: 'http://localhost:8000',
             // changes the origin of the host header to the target URL
             changeOrigin: true,
             // object, adds request headers. (Example: {Cookie:'mycookie'})
@@ -25,7 +25,7 @@ module.exports = {
 
                 // if target url need auth
                 // get cookie by visit the target url
-
+                // sessionid=g310esj7rnxdzac863ne2hf70o2k7ak0;
                 Cookie: ''
             }
         }

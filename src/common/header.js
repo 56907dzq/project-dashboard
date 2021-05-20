@@ -49,9 +49,14 @@ export default {
         {
             label: '使用文档',
             linkTarget: 'https://baidu.github.io/NoahV/#/guide/about'
+        },
+        {
+            label: '首页',
+            key: 'dash/index',
+            link: 'dash/index'
         }
     ],
-    hasBread: true,
+    hasBread: false,
     logo: {
         // 是否需要logo
         hasLogo: true,
@@ -62,6 +67,6 @@ export default {
         url: '/api/user',
         logout: '/api/logout'
     },
-    type: 'header',
+    type: 'header-sidebar',
     separator: '/'
 };
