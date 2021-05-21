@@ -4,12 +4,12 @@
             <div class="btn" @click="addDashboard">新建仪表盘
             </div>
             <filterTableTpl
-                :items="items"
-                :columns="columns"
                 :url="tableUrl"
                 method="get"
                 :params="tableParams"
                 :pagination="pagination"
+                :items="items"
+                :columns="columns"
                 :action="action"
                 :dataMap="dataMap"
                 ref="dashboardList"
@@ -20,7 +20,7 @@
             title="添加仪表盘"
             v-model="newDashboard"
             :width="400"
-        >
+            >
             <Form ref="newDashboard" :model="dashboardInfo" :rules="rule">
                 <FormItem prop="name" label="仪表盘名称">
                     <Input
@@ -124,6 +124,7 @@ export default {
                             okText: '删除',
                             cancelText: '我再想想',
                             api: util.getApi(apiConfig.dashboardDelete),
+                            method: 'delete',
                             item: {
                                 id: '{id}'
                             },

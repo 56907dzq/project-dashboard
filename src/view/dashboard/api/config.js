@@ -15,7 +15,7 @@ export default {
     // 3.复制仪表盘
     dashboardCopy: '/api/proxy/dashboard/copy',
     // 4.删除仪表盘
-    dashboardDelete: '/api/proxy/dashboard/delete',
+    dashboardDelete: '/api/proxy/dashboard',
 
 
     // 仪表盘综合配置页面

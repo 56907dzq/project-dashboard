@@ -5,6 +5,7 @@
             <formTpl
                 :items="items"
                 :action="action"
+                :params=$route.query
                 position="left"
                 :labelwidth="80"
                 layout="inline"
@@ -24,7 +25,7 @@
                 :key="index"
             >
                 <draggable
-                    :options="dargOption"
+                    v-bind="dargOption"
                     @add="onEmptyAdd($event, index)"
                     class="widget-line temp-line"
                 >
@@ -39,7 +40,7 @@
                 </div>
                 <draggable
                     v-model="dashboardData[index]"
-                    :options="dargOption"
+                    v-bind="dargOption"
                     @start="startItem"
                     @add="onAdd($event, item)"
                     :clone="cloneEvent"
@@ -119,6 +120,7 @@ export default {
                     name: 'submit',
                     type: 'primary',
                     title: '保存',
+                    method: 'post',
                     submitUrl: util.getApi(apiConfig.updateMeta),
                     args: {
                         name: this.name

@@ -22,8 +22,8 @@ var server = express();
 server.use(logger('dev'));
 
 // 处理post模拟数据参数信息
-server.use(bodyParser.json());
-server.use(bodyParser.urlencoded({ extended: true }));
+// server.use(bodyParser.json());
+// server.use(bodyParser.urlencoded({ extended: true }));
 
 
 var compiler = webpack(webpackConfig);
