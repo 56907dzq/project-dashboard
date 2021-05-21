@@ -50,7 +50,7 @@
                         <li
                             :class="'li-' + item.length"
                             v-for="(element, widgetIndex) in item"
-                            :key="element.id"
+                            :key="element.path"
                             class="widget-container"
                         >
                             <widget
@@ -177,7 +177,8 @@ export default {
             }).then(res => {
                 if (res.data.success) {
                     this.items[0].value = res.data.data.title;
-                    let config = JSON.parse(res.data.data.configure);
+                    // let config = JSON.parse(res.data.data.configure);
+                    let config = res.data.data.configure;
                     this.dashboard = config.widgets;
                     if (config.refresh === true) {
                         this.items[1].value = true;
@@ -197,6 +198,7 @@ export default {
                 method: 'post',
                 data: {
                     line: index,
+                    id: this.id,
                     name: this.name
                 }
             }).then(res => {
@@ -320,6 +322,7 @@ export default {
                 method: 'post',
                 data: {
                     name: this.name,
+                    id: this.id,
                     widgets: JSON.stringify(updateData)
                 }
             }).then(res => {
