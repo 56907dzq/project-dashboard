@@ -254,7 +254,7 @@ export default {
         widgetDelete(widget, index) {
             this.$request({
                 url: util.getApi(apiConfig.widgetDelete),
-                method: 'post',
+                method: 'delete',
                 showLoading: false,
                 data: {
                     name: this.name,

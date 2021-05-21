@@ -101,7 +101,7 @@ module.exports = server.listen(port, function(err) {
     console.log('default enable mock data, remove "?em" disable mock data' + '\n');
 
     // when env is testing, don't need open it
-    if (process.env.NODE_ENV !== 'testing') {
-        opn(uri);
-    }
+    // if (process.env.NODE_ENV !== 'testing') {
+    //     opn(uri);
+    // }
 });
