@@ -23,9 +23,9 @@ export default {
     // 1.更新仪表盘基础信息(名称&是否自动刷新)
     updateMeta: '/api/proxy/updateMeta',
     // 2.新增组件(点击加号)
-    widgetCreate: '/api/proxy/widgetscreate',
+    widgetCreate: '/api/proxy/widgets',
     // 3.删除组件
-    widgetDelete: '/api/proxy/widgetsdelete',
+    widgetDelete: '/api/proxy/widgets',
     // 4.拷贝组件
     widgetCopy: '/api/proxy/widgetscopy',
     // 5.更改仪表盘布局(拖动时)

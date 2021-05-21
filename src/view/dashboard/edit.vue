@@ -218,8 +218,8 @@ export default {
             }
             this.submitAdd(index, data => {
                 item.push({
-                    id: data.id,
-                    path: data.name,
+                    id: data.path,
+                    path: data.path,
                     title: data.title,
                     type: 'WIDGETS'
                 });
@@ -260,6 +260,8 @@ export default {
                 showLoading: false,
                 data: {
                     name: this.name,
+                    id: this.id,
+                    line: index,
                     widgetsname: widget[index].path
                 }
             }).then(res => {
