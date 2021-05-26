@@ -131,6 +131,7 @@ export default {
                         }
                     },
                     filterData(data) {
+                        data.id = this.id
                         if (data.refresh === true) {
                             data.configure = JSON.stringify({
                                 refresh: true
@@ -197,7 +198,7 @@ export default {
                 url: util.getApi(apiConfig.widgetCreate),
                 method: 'post',
                 data: {
-                    line: index,
+                    // line: index,
                     id: this.id,
                     name: this.name
                 }
@@ -237,16 +238,16 @@ export default {
                 showLoading: false,
                 data: {
                     name: this.name,
-                    widgetsname: widget[index].path,
-                    type: widget[index].type
+                    id: this.id,
+                    path: widget[index].path,
+                    // type: widget[index].type
                 }
             }).then(res => {
                 if (res.data.success) {
                     let obj = res.data.data;
-                    obj.path = obj.name;
-                    delete obj.name;
-                    obj.type = widget[index].type;
+                    // obj.type = widget[index].type;
                     widget.splice(index + 1, 0, obj);
+                    this.updateDashboard();
                 }
                 else {
                     this.$Message.error(res.data.message);
@@ -262,11 +263,12 @@ export default {
                     name: this.name,
                     id: this.id,
                     line: index,
-                    widgetsname: widget[index].path
+                    path: widget[index].path
                 }
             }).then(res => {
                 if (res.data.success) {
                     widget.splice(index, 1);
+                    this.updateDashboard();
                 }
                 else {
                     this.$Message.error(res.data.message);
@@ -313,6 +315,7 @@ export default {
                         tempRow.push({
                             path: item.path,
                             type: item.type,
+                            title: item.title,
                             id: item.id
                         });
                     });
