@@ -82,9 +82,9 @@ export default {
             }).then(response => {
                 if (response.data.success) {
                     this.title = response.data.data.title;
-                    let config = JSON.parse(response.data.data.configure);
+                    let config = response.data.data.configure;
                     this.wigetData = config.widgets;
-                    this.refresh = config.refresh || false;
+                    this.refresh = response.data.data.refresh || false;
                     this.timer = setTimeout(this.autoRefresh, FRENSH_TIME);
                 }
                 else {

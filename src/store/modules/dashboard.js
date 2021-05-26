@@ -23,8 +23,8 @@ const getters = {
 
 // actions
 const actions = {
-    getConfig({commit}, id) {
-        widget.getConfig(id, config => {
+    getConfig({commit}, params) {
+        widget.getConfig(params, config => {
             commit(types.GET_CONFIG, {config});
         });
     }

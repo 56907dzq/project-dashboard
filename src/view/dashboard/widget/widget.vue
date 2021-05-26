@@ -30,6 +30,7 @@ const typeMap = {
 export default {
     name: 'dashboardWidget',
     props: {
+        id: Number,
         path: String,
         title: String,
         type: String
@@ -55,8 +56,7 @@ export default {
     methods: {
         widgetAction(action) {
             if (action === 'edit') {
-                window.location.href = '#/dashboard/widget/edit?id='
-                    + this.path;
+                window.location.href = `#/dashboard/widget/edit?id=${this.id}&path=${this.path}`;
             }
             else if (action === 'copy') {
                 this.$emit('on-copy');

@@ -35,7 +35,7 @@ export default {
     // 组件配置页面
 
     // 1.获取组件配置信息
-    widgetConfig: '/api/proxy/widgetConfig',
+    widgetConfig: '/api/proxy/widgets',
 
     // 2.保存组件配置
     widgetSave: '/api/proxy/widgetSave',

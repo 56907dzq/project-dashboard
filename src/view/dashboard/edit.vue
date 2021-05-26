@@ -5,7 +5,6 @@
             <formTpl
                 :items="items"
                 :action="action"
-                :params=$route.query
                 position="left"
                 :labelwidth="80"
                 layout="inline"
@@ -23,19 +22,19 @@
                 class="dashboard-line"
                 v-for="(item, index) in dashboardData"
                 :key="index"
-            >
+                >
                 <draggable
                     v-bind="dargOption"
                     @add="onEmptyAdd($event, index)"
                     class="widget-line temp-line"
-                >
+                    >
                     <transition-group tag="ul">
                     </transition-group>
                 </draggable>
                 <div
                     @click="addWidget(item, index)"
                     class="widget-add-btn"
-                >
+                    >
                     <sa-icon type="plus"/>
                 </div>
                 <draggable
@@ -43,9 +42,10 @@
                     v-bind="dargOption"
                     @start="startItem"
                     @add="onAdd($event, item)"
+                    @update="onUpdate($event, item)"
                     :clone="cloneEvent"
                     class="widget-line"
-                >
+                    >
                     <transition-group tag="ul">
                         <li
                             :class="'li-' + item.length"
@@ -56,6 +56,7 @@
                             <widget
                                 @on-copy="widgetCopy(item, widgetIndex)"
                                 @on-delete="widgetDelete(item, widgetIndex)"
+                                :id="element.id"
                                 :path="element.path"
                                 :title="element.title"
                                 :type="element.type"
@@ -123,6 +124,7 @@ export default {
                     method: 'post',
                     submitUrl: util.getApi(apiConfig.updateMeta),
                     args: {
+                        id: this.id,
                         name: this.name
                     },
                     callback: (fieldsValue, responseData) => {
@@ -131,7 +133,6 @@ export default {
                         }
                     },
                     filterData(data) {
-                        data.id = this.id
                         if (data.refresh === true) {
                             data.configure = JSON.stringify({
                                 refresh: true
@@ -300,6 +301,17 @@ export default {
                 return false;
             }
             item.splice(newIndex, 0, node);
+            this.updateDashboard();
+        },
+        onUpdate(evt, item) {
+            let newIndex = evt.newIndex;
+            let oldIndex = evt.oldIndex;
+            let node = this.currentNode;
+            if (!node || !node.id) {
+                return false;
+            }
+            item.splice(newIndex, 0, node);
+            item.splice(oldIndex, 1);
             this.updateDashboard();
         },
         updateDashboard() {

@@ -131,9 +131,11 @@ export default {
     created() {
         // 获取query中的信息
         this.id = this.$route.query.id;
-        if (typeof this.id !== 'undefined') {
+        this.path = this.$route.query.path;
+        if (typeof this.id !== 'undefined' && typeof this.path !== 'undefined') {
             this.$store.dispatch('getConfig', {
-                id: this.id
+                id: this.id,
+                path: this.path
             });
         }
 

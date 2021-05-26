@@ -13,9 +13,7 @@ export default {
         vueInstace.$request({
             url: util.getApi(apiConfig.widgetConfig),
             method: 'get',
-            params: {
-                id: params.id
-            }
+            params: params
         }).then(res => {
             if (res.data.success) {
                 const data = res.data.data;

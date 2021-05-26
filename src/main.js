@@ -53,6 +53,29 @@ noahv.layout(headerConfig, footerApp);
 // keep this
 noahv.router(routerConfig);
 
+// noahv._router.beforeEach((to, from, next) => {
+//     const isLogin = GetCookie();
+//     if (to.path === "/login") {
+//       isLogin ? next("/index") : next();
+//     } else if (to.path === "/") {
+//       isLogin ? next() : next("/login");
+//     } else {
+//       if (isLogin) {
+//         let role_name;
+//         if (store.getters.role_name) role_name = store.getters.role_name;
+//         else {
+//           localStorage.getItem("userMsg")
+//             ? (role_name = JSON.parse(localStorage.getItem("userMsg")).role.role)
+//             : (role_name = "");
+//         }
+//         to.matched.some(record => _.includes(record.meta.roles, role_name))
+//           ? next()
+//           : next("404");
+//       } else next("/login");
+//     }
+// });
+
+
 // if you want use baidu tongji, add this line
 // for detail info, you can visit this page: http://tongji.baidu.com/web/help/article?id=174&type=0
 // noahv.useBaiduTrack('baidutongjiaccountId')
