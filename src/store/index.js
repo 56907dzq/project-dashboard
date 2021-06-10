@@ -32,22 +32,8 @@ const mutations = {
 };
 
 const actions = {
-    getUserName({commit, state}) {
-        // only request once
-        if (api.login.hasLogin && !state.userNameReady) {
-            if (api.login.url && api.login.url !== '') {
-                VUE_INSTANCE.$request.post(api.login.url).then(response => {
-                    if (!response.data.success) {
-                        return;
-                    }
-                    commit(UPDATE_USER_FLAG, true);
-                    let resData = response.data.data;
-                    if (resData.userName) {
-                        commit(LOGIN, resData.userName);
-                    }
-                });
-            }
-        }
+    setUserName({ commit }, name) {
+        commit(LOGIN, name);
     },
     // 获取基础数据
     getBaseData({commit}) {

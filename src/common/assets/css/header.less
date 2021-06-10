@@ -1,22 +1,44 @@
+.noahv-header-item-costom() {
+    color: hsla(240, 0%, 100%, 0.9);
+    &:hover {
+        color: white;
+        background-color: darken(@background, 7%);
+    }
+}
+
+
 .noahv-layout {
     .noahv-layout-header {
+        @background:   #516aaa;  
+        background: @background;
         .noahv-layout-header-inner {
             // logo
             .noahv-layout-logo {
-                width: 120px;
+                background: @background;
+                // width: 120px;
                 img {
-                    width: 120px;
+                    // width: 120px;
                     height: 45px;
                     margin-top: 0px;
                 }
             }
             .noahv-layout-nav {
+                background: @background;
                 left: 180px;
-                .menu-list {
-                    min-width: 145px;
+                a {
+                    .noahv-header-item-costom();
                 }
             }
+            .noahv-layout-login li a {
+                .noahv-header-item-costom();
+                color: white;
+                background: @background;
+            }
         }
-        
+        .active {
+            background-color: darken(@background, 7%);
+            border-bottom: none;
+            // border-bottom: #4b4b4b solid 2px;
+        }
     }
 }

@@ -13,6 +13,11 @@ exports.response = (path, params) => {
         title = '下游模块可用性监控-指标1趋势图';
         type = 'mdtrend';
     }
+    else if (params.id === '_1678359_1678361' || params.name === '_1678359_1678361') {
+        configure = '{"style":{"displayType":"line","unit":"","nullPointMode":"zero","threshold":"150000"},"datasource":{"api":"/api/get/trend","method":"POST","params":{"dev":true}},"title":"下游模块可用性监控-指标1趋势图","data":{"params":{"dev":true}}}';
+        title = '下游模块可用性监控-指标1趋势图';
+        type = 'mdtrend';
+    }
     else if (params.id === '_1678352_1678358' || params.name === '_1678352_1678358') {
         configure = '{"style":{"decimals":2,"unit":"%","max":100,"min":0,"threshold":[[0,100,"#ffc91b"]]},"datasource":{"api":"/api/get/mdcircle","method":"POST","params":{"dev":true}},"title":"下游模块可用性监控-指标1仪表图","data":{"params":{"dev":true}}}';
         title = '下游模块可用性监控-指标1仪表图';

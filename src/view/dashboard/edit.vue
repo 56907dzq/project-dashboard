@@ -310,8 +310,8 @@ export default {
             if (!node || !node.id) {
                 return false;
             }
-            item.splice(newIndex, 0, node);
-            item.splice(oldIndex, 1);
+            // item.splice(newIndex, 0, node);
+            // item.splice(oldIndex, 1);
             this.updateDashboard();
         },
         updateDashboard() {
