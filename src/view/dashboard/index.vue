@@ -8,7 +8,8 @@
                 <a href="#/dashboard/list">返回</a>
             </div>
         </div>
-        <SaDatePicker
+
+        <!-- <SaDatePicker
             type="daterangetime"
             dateFormat="YYYY-MM-DD HH:mm"
             :options="dateOptions"
@@ -16,7 +17,7 @@
             @on-change="timeChange"
             ref="daterange"
         >
-        </SaDatePicker>
+        </SaDatePicker> -->
 
         <div class="auto-refresh" v-if="refresh">
             <span class="refresh-title">自动刷新：</span>
@@ -27,17 +28,19 @@
             <!-- <div class="refresh-btn">
                 <sa-icon type="refresh"></sa-icon>
             </div> -->
-            <div class="refresh-tip" v-if="showTimeLimitTip">
+            <!-- <div class="refresh-tip" v-if="showTimeLimitTip">
                 <sa-icon type="warning-circle-o"></sa-icon>
                 时间段超过5小时，刷新关闭
-            </div>
+            </div> -->
         </div>
         <div class="view-content">
+            <Overview />
+            <!-- <SaMDCircle path="_1678352_1678358" :params="params" :extraParams="extraParams" confMethod="get" /> -->
             <div class="row" v-for="row in wigetData" >
                 <div :class="'widget-item col-md-' + row.length" v-for="item in row">
                     <template v-if="item.type === 'mdtrend'">
                         <SaMDTrend :path="item.path" :params="params" :extraParams="extraParams"
-confMethod="get" />
+                        confMethod="get" />
                     </template>
                     <template v-else-if="item.type === 'mdcircle'">
                         <SaMDCircle :path="item.path" :params="params" :extraParams="extraParams" confMethod="get" />
@@ -66,6 +69,7 @@ confMethod="get" />
 import m from 'moment';
 import apiConfig from './api/config';
 import util from './util/util';
+import Overview from './components/overview'
 const DATE_FORMAT = 'YYYY-MM-DD HH:mm';
 const FRENSH_TIME = 60000;
 export default {
@@ -158,6 +162,9 @@ export default {
             timer: null,
             refresh: false
         };
+    },
+    components: {
+       Overview 
     },
     methods: {
         timeChange(time) {

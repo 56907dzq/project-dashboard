@@ -90,6 +90,18 @@ export default {
                 this.changeSidebarItem(item, fullPath);
             }
         },
+        getFullRouterPath(path) {
+            if (!path) {
+                return;
+            }
+            const item = this.headerConfig.getCurrentItem('key', path);
+            if (item && item.key) {
+                this.fullPath.unshift(item.key);
+                if (item.parent !== null) {
+                    this.getFullRouterPath(item.parent);
+                }
+            }
+        },
         changeHeaderItem(item) {
             this.headerConfig.headerConf.forEach(headerItem => {
                 headerItem.selected = false;

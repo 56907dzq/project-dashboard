@@ -71,7 +71,7 @@ export default {
                     // submitUrl: '/api/demo/form/submit',
                     args: {},
                     callback() {
-                        self.$Message.success('提交成功');
+                        self.$Message.success('登录成功');
                         self.login()
                     },
                 }

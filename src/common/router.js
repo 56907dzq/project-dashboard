@@ -15,7 +15,20 @@ export default [
         path: '/',
         name: 'Home',
         component: Home,
+        redirect: 'dashboard/list',
         children: [
+            {
+                component: r => require.ensure([], () => r(require('src/view/dashboard/list')), 'dashboardList'),
+                path: 'dashboard/list'
+            },
+            {
+                component: r => require.ensure([], () => r(require('src/view/dashboard/index')), 'dashboard'),
+                path: 'dashboard/index'
+            },
+            {
+                component: r => require.ensure([], () => r(require('../view/dashboard/edit')), 'dashboardEdit'),
+                path: '/dashboard/edit'
+            },
             {
                 component: r => require.ensure([], () => r(require('src/dash/index')), 'dash/index'),
                 path: 'dash/index'

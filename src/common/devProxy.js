@@ -26,7 +26,7 @@ module.exports = {
                 // if target url need auth
                 // get cookie by visit the target url
                 // sessionid=g310esj7rnxdzac863ne2hf70o2k7ak0;
-                Cookie: ''
+                // Cookie: ''
             }
         }
     }

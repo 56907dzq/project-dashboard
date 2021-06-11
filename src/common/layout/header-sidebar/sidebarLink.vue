@@ -123,7 +123,7 @@ export default {
         };
     },
     mounted() {
-        this.curHeader = this.header?  this.header.headerConf: [];
+        this.curHeader = this.header.headerConf;
         this.getOpenNames();
     },
     watch: {
@@ -155,6 +155,7 @@ export default {
             this.$emit('sidebar-item-event', item, key);
         },
         getOpenNames() {
+            // console.log(this.curHeader)
             this.curHeader.forEach((item, key) => {
                 this.openNames[key] = [];
                 if (item.selected) {

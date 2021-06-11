@@ -70,7 +70,7 @@ export default {
             columns: [
                 {
                     title: '仪表盘名称',
-                    link: '#/dashboard/view?id={id}',
+                    link: '#/dashboard/index?id={id}',
                     key: 'title'
                 },
                 {

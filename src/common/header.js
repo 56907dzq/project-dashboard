@@ -5,9 +5,9 @@
 export default {
     header: [
         {
-            label: '首页',
-            key: 'dash/index',
-            link: 'dash/index'
+            label: '仪表盘',
+            key: 'dashboard/list',
+            link: 'dashboard/list'
         },
         {
             label: '图表示例',
